@@ -15,7 +15,7 @@ router.post("/", async (request, response) => {
 });
 
 router.get("/:cid", async (request, response) => {
-    const cartId = parseInt(req.params.cid);
+    const cartId = parseInt(request.params.cid);
 
     try{
         const cart = await cartManager.getCartById(cartId);
@@ -27,8 +27,8 @@ router.get("/:cid", async (request, response) => {
 });
 
 router.post("/:cid/product/:pid", async (request, response) => {
-    const cartId = parseInt(req.params.cid);
-    const productId = req.params.pid;
+    const cartId = parseInt(request.params.cid);
+    const productId = request.params.pid;
     const quantity = 1;
 
     try{
